@@ -6,4 +6,6 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton<AppInterceptors>(() => AppInterceptors());
   sl.registerLazySingleton<Dio>(() => Dio());
   sl.registerFactory<ApiConsumer>(() => DioConsumer(client: sl()));
+  sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(sl()));
+  sl.registerLazySingleton<AuthCubit>(() => AuthCubit(sl()));
 }

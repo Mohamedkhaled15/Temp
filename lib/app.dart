@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,8 @@ class _TempAppState extends State<TempApp> {
           initialRoute: RoutesName.splashScreen,
           onGenerateRoute: AppRouters.onGenerateRoute,
           navigatorKey: AppRouters.navigatorKey,
+          builder: BotToastInit(),
+          navigatorObservers: [BotToastNavigatorObserver()],
         );
       },
     );

@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_template/core/network/status.state.dart';
 
-import '../../enum/cubit_state.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_text_style.dart';
-
 
 class CustomButton extends StatelessWidget {
   final double radius;
@@ -18,7 +17,7 @@ class CustomButton extends StatelessWidget {
   final Color? color;
   final Color? borderColor;
   final Gradient? gradient;
-  final CubitStatus? cubitState;
+  final StatusState? cubitState;
   final bool isLoading;
   final bool isMainColor;
   final bool hasShadow;
@@ -67,11 +66,9 @@ class CustomButton extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: isLoading || cubitState == CubitStatus.loading
-                ? null
-                : onPressed,
+            onTap: cubitState?.isLoading == true ? null : onPressed,
             child: Center(
-              child: isLoading || cubitState == CubitStatus.loading
+              child: cubitState?.isLoading == true
                   ? CupertinoActivityIndicator(
                       color: AppColor.whiteColor(context),
                     )

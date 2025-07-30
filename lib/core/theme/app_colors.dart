@@ -37,6 +37,13 @@ class AppColor {
       dark: const Color(0xFFF9F9F9),
       listen: listen,
     );
+  }  static Color textFormFillColor(BuildContext context, {bool listen = true}) {
+    return AppTheme.getByTheme(
+      context,
+      light: const Color(0xFFF9F9F9),
+      dark: const Color(0xFFF9F9F9),
+      listen: listen,
+    );
   }
 
   static Color hintColor(BuildContext context, {bool listen = true}) {
